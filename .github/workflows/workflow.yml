@@ -31,10 +31,13 @@ jobs:
           cd test_app
           gem install bundler
           bundler install
+          cd ..
       - name: Create database
         run: |
+          cd test_app
           bundler exec rails db:create RAILS_ENV=test
           bundler exec rails db:migrate RAILS_ENV=test
+          cd ..
       - uses: borales/actions-yarn@v3.0.0
         with:
           cmd: install
