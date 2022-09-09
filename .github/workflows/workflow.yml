@@ -62,17 +62,17 @@ jobs:
         if: always()
         with:
           name: coverage-report
-          path: coverage
+          path: test_app/coverage
       - name: Upload rubocop report
         uses: actions/upload-artifact@master
         if: always()
         with:
           name: rubocop-report.txt
-          path: rubocop.txt
+          path: test_app/rubocop.txt
       - name: Upload brakeman report
         uses: actions/upload-artifact@master
         if: always()
         with:
           name: brakeman-report.txt
-          path: brakeman.txt
+          path: test_app/brakeman.txt
 
