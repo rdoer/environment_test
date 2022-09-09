@@ -39,7 +39,7 @@ jobs:
           POSTGRES_PASSWORD: postgres
         run: |
           sudo apt-get -yqq install libpq-dev
-          cd csce431
+          cd test_app
           gem install bundler
           bundle install --jobs 4 --retry 3
           bundle exec rake db:create
