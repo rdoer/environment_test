@@ -28,6 +28,7 @@ jobs:
         run: sudo apt-get install libpq-dev
       - name: Install dependencies
         run: |
+          cd test_app
           gem install bundler
           bundler install
       - name: Create database
