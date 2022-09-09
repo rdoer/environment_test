@@ -34,7 +34,7 @@ jobs:
           cd ..
       - name: Create database
         run: |
-          
+          cd test_app
           bundler exec rails db:create RAILS_ENV=test
           bundler exec rails db:migrate RAILS_ENV=test
           
@@ -43,9 +43,9 @@ jobs:
           cmd: install
       - name: Run tests
         run: |
-          cd test_app
+          
           bundler exec rspec .
-          cd ..
+          
       - name: Run brakeman
         run: |
           cd test_app
