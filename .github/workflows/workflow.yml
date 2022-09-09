@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:12
+        image: postgres:11
         ports:
         - 5432:5432
         env:
@@ -35,15 +35,16 @@ jobs:
       - name: Create database
         run: |
           cd test_app
+          bundler exec rails webpacker:install
           bundler exec rails db:create RAILS_ENV=test
           bundler exec rails db:migrate RAILS_ENV=test
           
-      - uses: borales/actions-yarn@v3.0.0
+      - uses: borales/actions-yarn@v2.3.0
         with:
           cmd: install
       - name: Run tests
         run: |
-          
+          cd test_app
           bundler exec rspec .
           
       - name: Run brakeman
