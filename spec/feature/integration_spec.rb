@@ -46,7 +46,9 @@ RSpec.describe 'Delete Books', type: :feature do
         fill_in 'Price', with: '6.1'
         click_on 'Create Book'
         visit books_path
+        click_on 'Delete'
         click_on 'Destroy'
+        visit books_path
         # click_button('OK')
         # page.driver.browser.accept_js_confirms
         expect(page).not_to have_content('Hatchet')
